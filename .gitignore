@@ -21,3 +21,6 @@ spike-results/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# demo videos (uploaded to YouTube, not git)
+video/

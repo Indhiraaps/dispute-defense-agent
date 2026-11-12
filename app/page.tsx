@@ -32,9 +32,14 @@ export default async function Home() {
 
   return (
     <main className="wide">
-      <header className="stack tight">
-        <h1>Dispute inbox</h1>
-        <p className="muted">Asha&apos;s Handmade Store · PayPal sandbox · Nothing is sent to PayPal without your approval.</p>
+      <header className="page-head">
+        <div className="stack tight">
+          <span className="eyebrow">Resolution Center</span>
+          <h1>Disputes</h1>
+          <p className="muted">
+            The agent gathers the evidence, scores every case and drafts a cited response. You decide what is sent to PayPal.
+          </p>
+        </div>
       </header>
 
       <Inbox initialRows={rows} initialKpis={kpis} />

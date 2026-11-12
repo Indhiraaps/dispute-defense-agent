@@ -15,15 +15,22 @@ const theme = themeQuartz.withParams({
   backgroundColor: "var(--surface)",
   foregroundColor: "var(--fg)",
   borderColor: "var(--line)",
-  headerBackgroundColor: "var(--bg)",
-  chromeBackgroundColor: "var(--bg)",
+  headerBackgroundColor: "var(--surface-2)",
+  headerTextColor: "var(--muted)",
+  chromeBackgroundColor: "var(--surface-2)",
   accentColor: "var(--accent)",
   browserColorScheme: "inherit",
   fontFamily: "inherit",
   fontSize: 14,
+  headerFontSize: 12,
   headerFontWeight: 600,
-  rowHoverColor: "var(--neutral-bg)",
-  wrapperBorderRadius: 10,
+  rowHoverColor: "var(--hover)",
+  wrapperBorderRadius: 12,
+  wrapperBorder: false,
+  rowBorder: { color: "var(--line-soft)" },
+  columnBorder: false,
+  headerColumnBorder: false,
+  spacing: 9,
 });
 
 const REFRESH_MS = 5000;
@@ -129,12 +136,12 @@ export function Inbox({ initialRows, initialKpis }: { initialRows: InboxRow[]; i
 
   const columns = useMemo<ColDef<InboxRow>[]>(
     () => [
-      { field: "id", headerName: "Dispute", cellRenderer: IdCell, width: 175, pinned: "left", filter: "agTextColumnFilter" },
-      { field: "item", headerName: "Item", flex: 2, minWidth: 190, filter: "agTextColumnFilter", tooltipField: "item" },
+      { field: "id", headerName: "Dispute", cellRenderer: IdCell, width: 160, pinned: "left", filter: "agTextColumnFilter" },
+      { field: "item", headerName: "Item", flex: 1, minWidth: 170, filter: "agTextColumnFilter", tooltipField: "item" },
       {
         field: "amount",
         headerName: "Amount",
-        width: 105,
+        width: 104,
         type: "rightAligned",
         filter: "agNumberColumnFilter",
         valueFormatter: (p) => (p.data ? money(p.data.amount, p.data.currency) : ""),
@@ -142,7 +149,7 @@ export function Inbox({ initialRows, initialKpis }: { initialRows: InboxRow[]; i
       {
         field: "score",
         headerName: "Recommendation",
-        width: 165,
+        width: 168,
         cellRenderer: BandCell,
         filter: "agNumberColumnFilter",
         filterParams: { buttons: ["reset"] },
@@ -150,7 +157,7 @@ export function Inbox({ initialRows, initialKpis }: { initialRows: InboxRow[]; i
       {
         field: "state",
         headerName: "Status",
-        width: 185,
+        width: 172,
         cellRenderer: StateCell,
         filter: "agTextColumnFilter",
         filterValueGetter: (p) => (p.data ? STATE_LABEL[p.data.state] : ""),
@@ -158,16 +165,14 @@ export function Inbox({ initialRows, initialKpis }: { initialRows: InboxRow[]; i
       {
         colId: "due",
         headerName: "Respond by",
-        width: 120,
+        width: 122,
         cellRenderer: DueCell,
         valueGetter: (p) => (p.data?.dueAt ? new Date(p.data.dueAt).getTime() : Number.POSITIVE_INFINITY),
         sort: "asc",
         filter: false,
       },
-      { field: "claim", headerName: "Claim", width: 150, filter: "agTextColumnFilter" },
-      { field: "buyer", headerName: "Buyer", flex: 1, minWidth: 150, filter: "agTextColumnFilter" },
-      { field: "draftOk", headerName: "Citations", width: 110, cellRenderer: CheckCell, filter: false },
-      { field: "evidence", headerName: "Records", width: 95, type: "rightAligned", filter: "agNumberColumnFilter" },
+      { field: "claim", headerName: "Claim", width: 142, filter: "agTextColumnFilter" },
+      { field: "draftOk", headerName: "Citations", width: 108, cellRenderer: CheckCell, filter: false },
     ],
     [],
   );
@@ -239,7 +244,8 @@ export function Inbox({ initialRows, initialKpis }: { initialRows: InboxRow[]; i
           quickFilterText={search}
           context={{ now }}
           domLayout="autoHeight"
-          rowHeight={46}
+          rowHeight={54}
+          headerHeight={44}
           animateRows
           onRowClicked={(e) => e.data && router.push(`/disputes/${encodeURIComponent(e.data.id)}`)}
           rowClass="clickable-row"

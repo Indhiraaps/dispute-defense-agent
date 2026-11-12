@@ -84,19 +84,22 @@ export default async function DisputePage(props: PageProps<"/disputes/[id]">) {
   const raw = d.source === "paypal" ? getDisputeRaw<Dispute>(d.id) : null;
 
   return (
-    <main>
-      <p>
-        <Link href="/">← Dispute inbox</Link>
-      </p>
-      <header className="stack">
-        <h1>
-          {d.itemName || d.id} <span className="muted">{money(d.amount, d.currency)}</span>
-        </h1>
+    <main className="wide">
+      <nav className="crumbs" aria-label="Breadcrumb">
+        <Link href="/">Disputes</Link>
+        <span aria-hidden="true">/</span>
+        <span>{d.id}</span>
+      </nav>
+      <header className="case-head panel">
+        <div className="case-title">
+          <h1>{d.itemName || d.id}</h1>
+          <span className="case-amount">{money(d.amount, d.currency)}</span>
+        </div>
         <div className="row">
-          <code>{d.id}</code>
+          <code className="id-chip">{d.id}</code>
           <ClaimTag type={d.claimType} />
           <StatePill state={d.state} />
-          {d.state !== "RESOLVED" && <span className={t.urgent ? "no" : "muted"}>{t.label}</span>}
+          {d.state !== "RESOLVED" && <span className={`due-chip ${t.urgent ? "urgent" : ""}`}>{t.label}</span>}
         </div>
         {d.buyerClaim && (
           <blockquote>
@@ -110,6 +113,8 @@ export default async function DisputePage(props: PageProps<"/disputes/[id]">) {
         )}
       </header>
 
+      <div className="case-grid">
+      <div className="case-main">
       {file && (
         <section className={`panel stack band band-${file.score.band.toLowerCase()}`}>
           <div className="row spread">
@@ -229,6 +234,8 @@ export default async function DisputePage(props: PageProps<"/disputes/[id]">) {
         />
       </section>
 
+      </div>
+      <aside className="case-side">
       <section className="panel stack">
         <div className="row spread">
           <h2>AI agent</h2>
@@ -384,6 +391,8 @@ export default async function DisputePage(props: PageProps<"/disputes/[id]">) {
           ))}
         </ul>
       </section>
+      </aside>
+      </div>
     </main>
   );
 }
