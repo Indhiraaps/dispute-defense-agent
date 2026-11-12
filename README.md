@@ -1,21 +1,76 @@
 # Dispute Defense Agent
 
-An AI agent that helps small PayPal sellers decide whether to fight a buyer dispute, then builds a cited evidence packet and submits it once the seller approves. PayPal sandbox only. Every tool in the stack is free.
+**PayPal's AI toolkit can accept a dispute but can't fight one. This agent builds a cited case, tells sellers when not to fight, and submits only after they approve.**
 
-## Build status
+- **Live:** https://dispute-defense-agent.onrender.com (password protected; the free server takes about a minute to wake up)
+- **Write-up:** [DEVPOST.md](DEVPOST.md) · **Demo script:** [DEMO_SCRIPT.md](DEMO_SCRIPT.md) · **Sandbox findings:** [PHASE0-FINDINGS.md](PHASE0-FINDINGS.md)
 
-| Phase | What | Status |
+## What it does
+
+For each PayPal buyer dispute, the agent:
+
+1. **Understands** the claim (item not received, not as described).
+2. **Gathers evidence** with tools it chooses itself: payment, order, carrier tracking, listing, photos, messages, shop policy. Each fact becomes a citable record such as `TRK-001`.
+3. **Reads the messages** (quotes are verified word for word) and **compares photos** with AI vision.
+4. **Scores the case with fixed rules**: contest, offer a partial refund, or accept.
+5. **Drafts the response**, with every sentence citing its evidence, then a **citation checker in code** blocks any sentence, date or number the records don't support.
+6. Builds an **evidence PDF**, waits for the **seller's approval**, then **submits through the PayPal Disputes API** and tracks the outcome.
+
+**Verified against the real PayPal sandbox:** a sandbox buyer's "item not received" dispute went through evidence upload (with the PDF), escalation to a claim, and PayPal's decision: `RESOLVED_SELLER_FAVOUR`.
+
+## How it works
+
+```mermaid
+flowchart LR
+  subgraph PayPal["PayPal sandbox"]
+    WH[Webhooks]
+    DIS[Disputes API]
+    ORD[Orders API]
+  end
+  subgraph App["Next.js app on Render"]
+    RCV[Webhook receiver<br/>signature verified]
+    AG[AI agent<br/>Vercel AI SDK tool loop]
+    SC[Rule-based scorer]
+    DR[AI drafter]
+    CK[Citation checker<br/>code]
+    PDF[Evidence PDF<br/>pdf-lib]
+    UI[Seller inbox<br/>AG Grid]
+    DB[(SQLite)]
+  end
+  GEM[Gemini free tier<br/>text, tools, vision]
+  WH --> RCV --> AG
+  AG <--> GEM
+  AG --> DB
+  AG --> SC --> DR --> CK
+  CK -- fails --> DR
+  CK --> PDF --> UI
+  UI -- seller approves --> DIS
+  DIS -.-> WH
+  ORD -.-> DIS
+```
+
+| Step | Done by | PayPal API |
 |---|---|---|
-| 0 | Sandbox spike: test the three unknowns | **Scripts ready; run them (below)** |
-| 1 | Project setup, PayPal client, webhook receiver | Done |
-| 2 | Evidence store (SQLite) and demo disputes | Done |
-| 3 | AI agent (Gemini + Vercel AI SDK) | Done |
-| 4 | Scorer, cited drafter, citation checker | Done |
-| 5 | PDF evidence packet | Done |
-| 6 | Seller dashboard (AG Grid Community) | Done |
-| 7 | Submit to PayPal and track outcomes | Done |
-| 8 | Deploy to Render | Done: https://dispute-defense-agent.onrender.com (password protected; see [DEPLOY.md](DEPLOY.md)) |
-| 9 | README, Devpost, demo video | Next |
+| Detect a new dispute | Code | Webhook `CUSTOMER.DISPUTE.CREATED`, verified with `POST /v1/notifications/verify-webhook-signature` |
+| Read it | Code | `GET /v1/customer/disputes/{id}` |
+| Gather, read messages, compare photos | **AI agent** (Gemini, tool calling, vision) | Dispute status as one of the agent's tools |
+| Score: contest, offer or accept | **Rules** | |
+| Draft the response | **AI**, every citation **checked in code** | |
+| Approve | **The seller** | |
+| Submit | Code, one `PayPal-Request-Id` per approval | `provide-evidence` (multipart, PDF as `evidence_file`), `make-offer`, `accept-claim`, `escalate` |
+| Track the outcome | Code | Webhooks `UPDATED` / `RESOLVED`, sandbox `adjudicate` for demos |
+
+## Stack (all free)
+
+Next.js 16 · TypeScript · Gemini free tier via the Vercel AI SDK v7 · SQLite (`better-sqlite3`) · pdf-lib · AG Grid Community · PayPal sandbox REST APIs · Render free web service. 17 unit tests (`npm test`).
+
+## Honest limits
+
+PayPal sandbox only. Carrier tracking in the demo is mocked (the sandbox has no carrier data), and the sweater photos are generated placeholders. Demo disputes are never sent to PayPal; their decisions are simulated and labelled. We report measured results only: so far one real sandbox dispute, won.
+
+---
+
+# Developer notes
 
 ## Setup
 
