@@ -14,7 +14,7 @@ An AI agent that helps small PayPal sellers decide whether to fight a buyer disp
 | 5 | PDF evidence packet | Done |
 | 6 | Seller dashboard (AG Grid Community) | Done |
 | 7 | Submit to PayPal and track outcomes | Done |
-| 8 | Deploy to Render and rehearse | Next |
+| 8 | Deploy to Render and rehearse | Ready to deploy: follow [DEPLOY.md](DEPLOY.md) |
 | 9 | README, Devpost, demo video | |
 
 ## Setup
