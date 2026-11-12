@@ -39,7 +39,7 @@ Raw responses for each step are in `spike-results/`.
 | `escalate` by the seller | **HTTP 200.** Status `UNDER_REVIEW` / `UNDER_PAYPAL_REVIEW`, stage still `INQUIRY` right after. |
 | `adjudicate` straight after escalation | Refused again, same error. PayPal probably needs time to turn the inquiry into a claim (as with the first review delay). Re-check later. |
 
-**Open question 3 answered (10:32 pm):** after the evidence on the claim, PayPal added **`adjudicate`** (plus `require_evidence`, `accept_claim`) to the dispute's links about **30 minutes** later, and `adjudicate` with `SELLER_FAVOR` was then **accepted**. Right after, the status stayed `UNDER_REVIEW` while PayPal processed the decision. The app now shows the sandbox decision buttons only when the `adjudicate` link is present.
+**Open question 3 answered (10:32 pm):** after the evidence on the claim, PayPal added **`adjudicate`** (plus `require_evidence`, `accept_claim`) to the dispute's links about **30 minutes** later, and `adjudicate` with `SELLER_FAVOR` was then **accepted**. Right after, the status stayed `UNDER_REVIEW`; about **3 minutes** later it became **`RESOLVED` / `RESOLVED_SELLER_FAVOUR`**, and the app recorded it as a win on the next sync. The app now shows the sandbox decision buttons only when the `adjudicate` link is present.
 
 So: **open question 1 is answered** (evidence + PDF upload works). For a live "seller wins" moment, the dispute must reach the claim stage first: open the demo dispute a day early, submit evidence, escalate, and let PayPal process it before presenting.
 
