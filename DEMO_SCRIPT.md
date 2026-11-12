@@ -82,4 +82,4 @@ Times are a guide. **Say** = what you say; **Do** = what you click.
 
 ## After recording
 
-Upload to **YouTube** (Unlisted is fine) and paste the link into Devpost. Keep it to 3 minutes or less, or whatever Devpost's rules say.
+Upload to **YouTube** as **Public** (the rules require a publicly visible video) and paste the link into Devpost. It must be under 3 minutes.
