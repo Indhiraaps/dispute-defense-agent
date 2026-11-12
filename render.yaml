@@ -6,7 +6,8 @@ services:
     name: dispute-defense-agent
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run build
+    # --include=dev: NODE_ENV=production would otherwise skip TypeScript, which the build needs
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     autoDeploy: true
