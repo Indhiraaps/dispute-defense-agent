@@ -4,7 +4,9 @@
 PayPal's AI toolkit can accept a dispute but can't fight one. This agent builds a cited case, tells sellers when not to fight, and submits only after they approve.
 
 **Try it:** https://dispute-defense-agent.onrender.com (password in the submission notes; the free server takes about a minute to wake up)
-**Code:** https://github.com/Indhiraaps/dispute-defense-agent
+**Code:** https://github.com/Indhiraaps/dispute-defense-agent (MIT licence)
+
+*The demo video was recorded automatically from the running app, with text-to-speech narration.*
 
 ---
 
