@@ -1,0 +1,1290 @@
+{
+ "version": 1,
+ "createdAt": "2026-11-12T16:47:38.520Z",
+ "tables": {
+  "disputes": [
+   {
+    "id": "DEMO-1001",
+    "source": "demo",
+    "claim_type": "INR",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+    "buyer_claim": "I never received the scarf I paid for.",
+    "paypal_status": "WAITING_FOR_SELLER_RESPONSE",
+    "stage": "INQUIRY",
+    "amount": "120.00",
+    "currency": "USD",
+    "item_name": "Hand-block printed cotton scarf, indigo",
+    "buyer_name": "Lena M.",
+    "buyer_country": "DE",
+    "transaction_id": "5TY82917JD440813K",
+    "order_id": "AHS-2041",
+    "opened_at": "2026-11-10T14:20:02.740Z",
+    "seller_due_at": "2026-11-20T19:20:02.740Z",
+    "state": "AWAITING_APPROVAL",
+    "outcome": null,
+    "raw": null,
+    "updated_at": "2026-11-12T16:47:05.275Z"
+   },
+   {
+    "id": "DEMO-1002",
+    "source": "demo",
+    "claim_type": "SNAD",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_AS_DESCRIBED",
+    "buyer_claim": "The colour is wrong. The listing says navy but the sweater is black.",
+    "paypal_status": "WAITING_FOR_SELLER_RESPONSE",
+    "stage": "INQUIRY",
+    "amount": "80.00",
+    "currency": "USD",
+    "item_name": "Hand-knit merino sweater, navy",
+    "buyer_name": "Tom R.",
+    "buyer_country": "GB",
+    "transaction_id": "8KM20455RT913522W",
+    "order_id": "AHS-2033",
+    "opened_at": "2026-11-08T14:20:02.740Z",
+    "seller_due_at": "2026-11-18T16:20:02.740Z",
+    "state": "AWAITING_APPROVAL",
+    "outcome": null,
+    "raw": null,
+    "updated_at": "2026-11-12T16:47:05.274Z"
+   },
+   {
+    "id": "DEMO-1003",
+    "source": "demo",
+    "claim_type": "INR",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+    "buyer_claim": "I ordered a mug three weeks ago and nothing has arrived.",
+    "paypal_status": "WAITING_FOR_SELLER_RESPONSE",
+    "stage": "INQUIRY",
+    "amount": "40.00",
+    "currency": "USD",
+    "item_name": "Jaipur blue pottery mug",
+    "buyer_name": "Sam K.",
+    "buyer_country": "US",
+    "transaction_id": "3HW61842PL207639B",
+    "order_id": "AHS-2017",
+    "opened_at": "2026-11-05T14:20:02.740Z",
+    "seller_due_at": "2026-11-15T10:20:02.740Z",
+    "state": "AWAITING_APPROVAL",
+    "outcome": null,
+    "raw": null,
+    "updated_at": "2026-11-12T16:47:05.272Z"
+   },
+   {
+    "id": "PP-R-IVY-10200275",
+    "source": "paypal",
+    "claim_type": "INR",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+    "buyer_claim": "I never received the scarf",
+    "paypal_status": "UNDER_REVIEW",
+    "stage": "CHARGEBACK",
+    "amount": "120.00",
+    "currency": "USD",
+    "item_name": "Hand-block printed cotton scarf",
+    "buyer_name": "John D.",
+    "buyer_country": "",
+    "transaction_id": "6KE15608DJ4170943",
+    "order_id": "test-1794495912693",
+    "opened_at": "2026-11-12T15:21:16.366Z",
+    "seller_due_at": "2026-11-22T18:29:59.000Z",
+    "state": "AWAITING_APPROVAL",
+    "outcome": null,
+    "raw": "{\"dispute_id\":\"PP-R-IVY-10200275\",\"create_time\":\"2026-11-12T15:21:16.366Z\",\"update_time\":\"2026-11-12T16:32:30.980Z\",\"disputed_transactions\":[{\"buyer_transaction_id\":\"5RK914551L467580N\",\"seller_transaction_id\":\"6KE15608DJ4170943\",\"create_time\":\"2026-11-12T15:13:13.000Z\",\"transaction_status\":\"HELD\",\"gross_amount\":{\"currency_code\":\"USD\",\"value\":\"120.00\"},\"custom\":\"test-1794495912693\",\"buyer\":{\"email\":\"redacted@example.com\",\"payer_id\":\"V4LQ2MUJF6XAC\",\"name\":\"John Doe\"},\"seller\":{\"email\":\"redacted@example.com\",\"merchant_id\":\"CRQMTVZ9FANA4\",\"name\":\"Test Store\"},\"items\":[{\"item_name\":\"Hand-block printed cotton scarf\",\"item_description\":\"Hand-block printed cotton scarf\",\"item_quantity\":\"1\",\"reason\":\"MERCHANDISE_OR_SERVICE_NOT_RECEIVED\",\"item_type\":\"PRODUCT\"}],\"seller_protection_eligible\":true,\"seller_protection_type\":\"EXPANDED_SELLER_PROTECTION\"}],\"reason\":\"MERCHANDISE_OR_SERVICE_NOT_RECEIVED\",\"status\":\"UNDER_REVIEW\",\"dispute_amount\":{\"currency_code\":\"USD\",\"value\":\"120.00\"},\"dispute_state\":\"UNDER_PAYPAL_REVIEW\",\"fund_movements\":[{\"party\":\"SELLER\",\"amount\":{\"currency_code\":\"USD\",\"value\":\"114.12\"},\"initiated_time\":\"2026-11-12T15:24:34.000Z\",\"type\":\"DEBIT\",\"reason\":\"HOLD_PLACED\"}],\"dispute_life_cycle_stage\":\"CHARGEBACK\",\"dispute_channel\":\"INTERNAL\",\"messages\":[{\"posted_by\":\"BUYER\",\"time_posted\":\"2026-11-12T15:21:16.366Z\",\"content\":\"I never received the scarf\"}],\"extensions\":{\"buyer_contacted_time\":\"2026-11-12T15:21:15.685Z\"},\"evidences\":[{\"evidence_type\":\"CREATE\",\"notes\":\"I never received the scarf\",\"source\":\"SUBMITTED_BY_BUYER\",\"date\":\"2026-11-12T15:21:16.366Z\",\"dispute_life_cycle_stage\":\"INQUIRY\"},{\"evidence_type\":\"PROOF_OF_FULFILLMENT\",\"evidence_info\":{\"tracking_info\":[{\"carrier_name\":\"FEDEX\",\"tracking_number\":\"122533485\"}]},\"documents\":[{\"name\":\"evidence.pdf\",\"url\":\"https://api-m.sandbox.paypal.com/v2/content/documents/DIS-010-11f1-deb5-b5452350-b33a-9828b7250bcc/files/1/download\"}],\"notes\":\"Shipped on 3 Nov via FedEx, tracking 122533485 [TRK-001]. Delivered on 6 Nov [TRK-002].\",\"source\":\"SUBMITTED_BY_SELLER\",\"date\":\"2026-11-12T16:25:44.016Z\",\"action_info\":{\"action\":\"PROVIDE_EVIDENCE\"},\"dispute_life_cycle_stage\":\"INQUIRY\"},{\"evidence_type\":\"OTHER\",\"notes\":\"Escalating to PayPal for review.\",\"source\":\"SUBMITTED_BY_SELLER\",\"date\":\"2026-11-12T16:26:20.208Z\",\"action_info\":{\"action\":\"ESCALATE\"},\"dispute_life_cycle_stage\":\"INQUIRY\"},{\"evidence_type\":\"PROOF_OF_FULFILLMENT\",\"evidence_info\":{\"tracking_info\":[{\"carrier_name\":\"FEDEX\",\"tracking_number\":\"122533485\"}]},\"documents\":[{\"name\":\"evidence.pdf\",\"url\":\"https://api-m.sandbox.paypal.com/v2/content/documents/DIS-010-11f1-deb6-a7d34110-8df7-3c318f7fc3b2/files/1/download\"}],\"notes\":\"Shipped on 3 Nov via FedEx, tracking 122533485 [TRK-001]. Delivered on 6 Nov [TRK-002].\",\"source\":\"SUBMITTED_BY_SELLER\",\"date\":\"2026-11-12T16:32:30.980Z\",\"action_info\":{\"action\":\"PROVIDE_EVIDENCE\"},\"dispute_life_cycle_stage\":\"CHARGEBACK\"}],\"offer\":{\"buyer_requested_amount\":{\"currency_code\":\"USD\",\"value\":\"120.00\"}},\"refund_details\":{\"allowed_refund_amount\":{\"currency_code\":\"USD\",\"value\":\"120.00\"}},\"links\":[{\"href\":\"https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IVY-10200275\",\"rel\":\"self\",\"method\":\"GET\",\"encType\":\"application/json\"},{\"href\":\"https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IVY-10200275/provide-supporting-info\",\"rel\":\"provide_supporting_info\",\"method\":\"POST\",\"encType\":\"application/json\"}]}",
+    "updated_at": "2026-11-12T16:35:14.707Z"
+   }
+  ],
+  "evidence": [
+   {
+    "dispute_id": "DEMO-1003",
+    "id": "PAY-001",
+    "kind": "payment",
+    "source_ref": "payment:3HW61842PL207639B",
+    "source": "PayPal transaction record",
+    "title": "Payment 3HW61842PL207639B",
+    "text": "PayPal payment 3HW61842PL207639B of 40.00 USD on 12 Oct 2026 from a buyer in the United States.",
+    "facts": "{\"transaction_id\":\"3HW61842PL207639B\",\"amount\":\"40.00\",\"currency\":\"USD\",\"paid_at\":\"2026-10-12\",\"buyer_country\":\"US\",\"status\":\"COMPLETED\"}",
+    "collected_at": "2026-11-12T15:56:51.747Z"
+   },
+   {
+    "dispute_id": "DEMO-1003",
+    "id": "ORD-001",
+    "kind": "order",
+    "source_ref": "order:AHS-2017",
+    "source": "Seller store export",
+    "title": "Order AHS-2017",
+    "text": "Order AHS-2017: 1 × Jaipur blue pottery mug. Ship to Austin 78701, United States. Marked shipped on 15 Oct 2026.",
+    "facts": "{\"order_id\":\"AHS-2017\",\"items\":\"1 × Jaipur blue pottery mug\",\"ship_to_city\":\"Austin\",\"ship_to_postal_code\":\"78701\",\"ship_to_country\":\"US\",\"shipped_at\":\"2026-10-15\",\"paid_at\":\"2026-10-12\"}",
+    "collected_at": "2026-11-12T15:56:51.748Z"
+   },
+   {
+    "dispute_id": "DEMO-1003",
+    "id": "LST-001",
+    "kind": "listing",
+    "source_ref": "listing:MUG-BLU-01",
+    "source": "Seller store export",
+    "title": "Jaipur blue pottery mug",
+    "text": "Listing \"Jaipur blue pottery mug\" as captured on 12 Oct 2026: Hand-painted blue pottery mug, 300 ml. Each piece is unique. (color: blue and white; material: blue pottery; size: 300 ml)",
+    "facts": "{\"sku\":\"MUG-BLU-01\",\"title\":\"Jaipur blue pottery mug\",\"snapshot_at\":\"2026-10-12\",\"color\":\"blue and white\",\"material\":\"blue pottery\",\"size\":\"300 ml\"}",
+    "collected_at": "2026-11-12T15:56:51.748Z"
+   },
+   {
+    "dispute_id": "DEMO-1003",
+    "id": "MSG-001",
+    "kind": "message",
+    "source_ref": "message:AHS-2017#1",
+    "source": "Store message thread",
+    "title": "Buyer message, 2 Nov 2026",
+    "text": "Buyer wrote on 2 Nov 2026: \"Hi, any update on my order? It's been three weeks.\"",
+    "facts": "{\"from\":\"buyer\",\"date\":\"2026-11-02\",\"text\":\"Hi, any update on my order? It's been three weeks.\"}",
+    "collected_at": "2026-11-12T15:56:51.749Z"
+   },
+   {
+    "dispute_id": "DEMO-1003",
+    "id": "POL-001",
+    "kind": "policy",
+    "source_ref": "policy:returns-2026-01",
+    "source": "Seller's published shop policy",
+    "title": "Returns and shipping policy",
+    "text": "Shop policy (updated 15 Jan 2026): Returns accepted within 14 days of delivery for unused items. Our textiles are dyed by hand with natural dyes, so colour can vary slightly between pieces and from screen photos. Orders ship within 3 business days.",
+    "facts": "{\"policy_id\":\"returns-2026-01\",\"updated_at\":\"2026-01-15\",\"handling_days\":3}",
+    "collected_at": "2026-11-12T15:56:51.749Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "PAY-001",
+    "kind": "payment",
+    "source_ref": "payment:8KM20455RT913522W",
+    "source": "PayPal transaction record",
+    "title": "Payment 8KM20455RT913522W",
+    "text": "PayPal payment 8KM20455RT913522W of 80.00 USD on 20 Oct 2026 from a buyer in the United Kingdom.",
+    "facts": "{\"transaction_id\":\"8KM20455RT913522W\",\"amount\":\"80.00\",\"currency\":\"USD\",\"paid_at\":\"2026-10-20\",\"buyer_country\":\"GB\",\"status\":\"COMPLETED\"}",
+    "collected_at": "2026-11-12T15:56:51.751Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "ORD-001",
+    "kind": "order",
+    "source_ref": "order:AHS-2033",
+    "source": "Seller store export",
+    "title": "Order AHS-2033",
+    "text": "Order AHS-2033: 1 × Hand-knit merino sweater, navy. Ship to Manchester M1 1AE, United Kingdom. Marked shipped on 24 Oct 2026.",
+    "facts": "{\"order_id\":\"AHS-2033\",\"items\":\"1 × Hand-knit merino sweater, navy\",\"ship_to_city\":\"Manchester\",\"ship_to_postal_code\":\"M1 1AE\",\"ship_to_country\":\"GB\",\"shipped_at\":\"2026-10-24\",\"paid_at\":\"2026-10-20\"}",
+    "collected_at": "2026-11-12T15:56:51.751Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "TRK-001",
+    "kind": "tracking",
+    "source_ref": "tracking:EM482913756IN",
+    "source": "Carrier tracking (mocked for the demo)",
+    "title": "India Post EMS EM482913756IN",
+    "text": "India Post EMS tracking EM482913756IN, picked up in Jaipur on 24 Oct 2026, addressed to Manchester M1 1AE, matching the order's shipping address.",
+    "facts": "{\"carrier\":\"India Post EMS\",\"tracking_number\":\"EM482913756IN\",\"picked_up_at\":\"2026-10-24\",\"destination_postal_code\":\"M1 1AE\",\"ship_to_postal_code\":\"M1 1AE\",\"address_match\":true}",
+    "collected_at": "2026-11-12T15:56:51.752Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "DLV-001",
+    "kind": "delivery",
+    "source_ref": "delivery:EM482913756IN",
+    "source": "Carrier tracking (mocked for the demo)",
+    "title": "Delivered 3 Nov 2026",
+    "text": "India Post EMS shows the parcel delivered in Manchester M1 1AE on 3 Nov 2026. Signed for by T. Reid.",
+    "facts": "{\"delivered\":true,\"delivered_at\":\"2026-11-03\",\"delivered_postal_code\":\"M1 1AE\",\"signed_by\":\"T. Reid\",\"delivery_photo\":false,\"latest_status\":\"Delivered\"}",
+    "collected_at": "2026-11-12T15:56:51.752Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "LST-001",
+    "kind": "listing",
+    "source_ref": "listing:SWT-NVY-M",
+    "source": "Seller store export",
+    "title": "Hand-knit merino sweater, navy",
+    "text": "Listing \"Hand-knit merino sweater, navy\" as captured on 20 Oct 2026: Hand-knit merino wool sweater, naturally dyed navy blue. Size M. Natural dyes mean the shade can vary slightly between pieces. (color: navy; material: merino wool; size: M)",
+    "facts": "{\"sku\":\"SWT-NVY-M\",\"title\":\"Hand-knit merino sweater, navy\",\"snapshot_at\":\"2026-10-20\",\"color\":\"navy\",\"material\":\"merino wool\",\"size\":\"M\"}",
+    "collected_at": "2026-11-12T15:56:51.753Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "MSG-001",
+    "kind": "message",
+    "source_ref": "message:AHS-2033#1",
+    "source": "Store message thread",
+    "title": "Buyer message, 4 Nov 2026",
+    "text": "Buyer wrote on 4 Nov 2026: \"The sweater arrived but it looks almost black, not navy like the photos.\"",
+    "facts": "{\"from\":\"buyer\",\"date\":\"2026-11-04\",\"text\":\"The sweater arrived but it looks almost black, not navy like the photos.\"}",
+    "collected_at": "2026-11-12T15:56:51.754Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "MSG-002",
+    "kind": "message",
+    "source_ref": "message:AHS-2033#2",
+    "source": "Store message thread",
+    "title": "Seller message, 4 Nov 2026",
+    "text": "Seller wrote on 4 Nov 2026: \"So sorry to hear that! Our dyes are natural so shades vary a little. Could you send a photo in daylight?\"",
+    "facts": "{\"from\":\"seller\",\"date\":\"2026-11-04\",\"text\":\"So sorry to hear that! Our dyes are natural so shades vary a little. Could you send a photo in daylight?\"}",
+    "collected_at": "2026-11-12T15:56:51.754Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "MSG-003",
+    "kind": "message",
+    "source_ref": "message:AHS-2033#3",
+    "source": "Store message thread",
+    "title": "Buyer message, 6 Nov 2026",
+    "text": "Buyer wrote on 6 Nov 2026: \"I've attached a photo to my PayPal claim. I'd like a refund.\"",
+    "facts": "{\"from\":\"buyer\",\"date\":\"2026-11-06\",\"text\":\"I've attached a photo to my PayPal claim. I'd like a refund.\"}",
+    "collected_at": "2026-11-12T15:56:51.755Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "POL-001",
+    "kind": "policy",
+    "source_ref": "policy:returns-2026-01",
+    "source": "Seller's published shop policy",
+    "title": "Returns and shipping policy",
+    "text": "Shop policy (updated 15 Jan 2026): Returns accepted within 14 days of delivery for unused items. Our textiles are dyed by hand with natural dyes, so colour can vary slightly between pieces and from screen photos. Orders ship within 3 business days.",
+    "facts": "{\"policy_id\":\"returns-2026-01\",\"updated_at\":\"2026-01-15\",\"handling_days\":3}",
+    "collected_at": "2026-11-12T15:56:51.755Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "PAY-001",
+    "kind": "payment",
+    "source_ref": "payment:5TY82917JD440813K",
+    "source": "PayPal transaction record",
+    "title": "Payment 5TY82917JD440813K",
+    "text": "PayPal payment 5TY82917JD440813K of 120.00 USD on 28 Oct 2026 from a buyer in Germany.",
+    "facts": "{\"transaction_id\":\"5TY82917JD440813K\",\"amount\":\"120.00\",\"currency\":\"USD\",\"paid_at\":\"2026-10-28\",\"buyer_country\":\"DE\",\"status\":\"COMPLETED\"}",
+    "collected_at": "2026-11-12T15:56:51.756Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "ORD-001",
+    "kind": "order",
+    "source_ref": "order:AHS-2041",
+    "source": "Seller store export",
+    "title": "Order AHS-2041",
+    "text": "Order AHS-2041: 1 × Hand-block printed cotton scarf, indigo. Ship to Berlin 10115, Germany. Marked shipped on 30 Oct 2026.",
+    "facts": "{\"order_id\":\"AHS-2041\",\"items\":\"1 × Hand-block printed cotton scarf, indigo\",\"ship_to_city\":\"Berlin\",\"ship_to_postal_code\":\"10115\",\"ship_to_country\":\"DE\",\"shipped_at\":\"2026-10-30\",\"paid_at\":\"2026-10-28\"}",
+    "collected_at": "2026-11-12T15:56:51.756Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "TRK-001",
+    "kind": "tracking",
+    "source_ref": "tracking:4719336502",
+    "source": "Carrier tracking (mocked for the demo)",
+    "title": "DHL Express 4719336502",
+    "text": "DHL Express tracking 4719336502, picked up in Jaipur on 30 Oct 2026, addressed to Berlin 10115, matching the order's shipping address.",
+    "facts": "{\"carrier\":\"DHL Express\",\"tracking_number\":\"4719336502\",\"picked_up_at\":\"2026-10-30\",\"destination_postal_code\":\"10115\",\"ship_to_postal_code\":\"10115\",\"address_match\":true}",
+    "collected_at": "2026-11-12T15:56:51.757Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "DLV-001",
+    "kind": "delivery",
+    "source_ref": "delivery:4719336502",
+    "source": "Carrier tracking (mocked for the demo)",
+    "title": "Delivered 4 Nov 2026",
+    "text": "DHL Express shows the parcel delivered in Berlin 10115 on 4 Nov 2026. No signature or delivery photo recorded.",
+    "facts": "{\"delivered\":true,\"delivered_at\":\"2026-11-04\",\"delivered_postal_code\":\"10115\",\"signed_by\":null,\"delivery_photo\":false,\"latest_status\":\"Delivered\"}",
+    "collected_at": "2026-11-12T15:56:51.757Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "LST-001",
+    "kind": "listing",
+    "source_ref": "listing:SCF-IND-01",
+    "source": "Seller store export",
+    "title": "Hand-block printed cotton scarf, indigo",
+    "text": "Listing \"Hand-block printed cotton scarf, indigo\" as captured on 28 Oct 2026: Hand-block printed in Jaipur on soft cotton mulmul. Indigo with white floral print. 180 × 70 cm. (color: indigo; material: cotton; size: 180 × 70 cm)",
+    "facts": "{\"sku\":\"SCF-IND-01\",\"title\":\"Hand-block printed cotton scarf, indigo\",\"snapshot_at\":\"2026-10-28\",\"color\":\"indigo\",\"material\":\"cotton\",\"size\":\"180 × 70 cm\"}",
+    "collected_at": "2026-11-12T15:56:51.757Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "MSG-001",
+    "kind": "message",
+    "source_ref": "message:AHS-2041#1",
+    "source": "Store message thread",
+    "title": "Buyer message, 5 Nov 2026",
+    "text": "Buyer wrote on 5 Nov 2026: \"Got it, love it! The colours are even nicer in person.\"",
+    "facts": "{\"from\":\"buyer\",\"date\":\"2026-11-05\",\"text\":\"Got it, love it! The colours are even nicer in person.\"}",
+    "collected_at": "2026-11-12T15:56:51.758Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "id": "POL-001",
+    "kind": "policy",
+    "source_ref": "policy:returns-2026-01",
+    "source": "Seller's published shop policy",
+    "title": "Returns and shipping policy",
+    "text": "Shop policy (updated 15 Jan 2026): Returns accepted within 14 days of delivery for unused items. Our textiles are dyed by hand with natural dyes, so colour can vary slightly between pieces and from screen photos. Orders ship within 3 business days.",
+    "facts": "{\"policy_id\":\"returns-2026-01\",\"updated_at\":\"2026-01-15\",\"handling_days\":3}",
+    "collected_at": "2026-11-12T15:56:51.758Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "id": "PAY-001",
+    "kind": "payment",
+    "source_ref": "payment:6KE15608DJ4170943",
+    "source": "PayPal Disputes API",
+    "title": "Payment 6KE15608DJ4170943",
+    "text": "PayPal payment 6KE15608DJ4170943 of 120.00 USD on 12 Nov 2026.",
+    "facts": "{\"transaction_id\":\"6KE15608DJ4170943\",\"amount\":\"120.00\",\"currency\":\"USD\",\"paid_at\":\"2026-11-12\",\"buyer_country\":null,\"status\":\"HELD\"}",
+    "collected_at": "2026-11-12T15:56:51.759Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "id": "ORD-001",
+    "kind": "order",
+    "source_ref": "order:test-1794495912693",
+    "source": "PayPal",
+    "title": "Order test-1794495912693",
+    "text": "Order test-1794495912693: 1 × Hand-block printed cotton scarf. Not marked as shipped.",
+    "facts": "{\"order_id\":\"test-1794495912693\",\"items\":\"1 × Hand-block printed cotton scarf\",\"ship_to_city\":null,\"ship_to_postal_code\":null,\"ship_to_country\":null,\"shipped_at\":null,\"paid_at\":\"2026-11-12\"}",
+    "collected_at": "2026-11-12T15:56:51.760Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "id": "MSG-001",
+    "kind": "message",
+    "source_ref": "message:paypal#1",
+    "source": "PayPal dispute messages",
+    "title": "Buyer message, 12 Nov 2026",
+    "text": "Buyer wrote on 12 Nov 2026: \"I never received the scarf\"",
+    "facts": "{\"from\":\"buyer\",\"date\":\"2026-11-12\",\"text\":\"I never received the scarf\"}",
+    "collected_at": "2026-11-12T15:56:51.760Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "id": "POL-001",
+    "kind": "policy",
+    "source_ref": "policy:returns-2026-01",
+    "source": "Seller's published shop policy",
+    "title": "Returns and shipping policy",
+    "text": "Shop policy (updated 15 Jan 2026): Returns accepted within 14 days of delivery for unused items. Our textiles are dyed by hand with natural dyes, so colour can vary slightly between pieces and from screen photos. Orders ship within 3 business days.",
+    "facts": "{\"policy_id\":\"returns-2026-01\",\"updated_at\":\"2026-01-15\",\"handling_days\":3}",
+    "collected_at": "2026-11-12T15:56:51.761Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "IMG-001",
+    "kind": "photo",
+    "source_ref": "photo:AHS-2033#listing",
+    "source": "Seller's photos",
+    "title": "Listing photo, 20 Oct 2026",
+    "text": "Listing photo (20 Oct 2026): Listing photo of the navy merino sweater, taken in daylight.",
+    "facts": "{\"who\":\"listing\",\"path\":\"demo/sweater-listing.png\",\"taken_at\":\"2026-10-20\",\"caption\":\"Listing photo of the navy merino sweater, taken in daylight\"}",
+    "collected_at": "2026-11-12T15:56:51.753Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "id": "IMG-002",
+    "kind": "photo",
+    "source_ref": "photo:AHS-2033#buyer",
+    "source": "Buyer's claim attachment",
+    "title": "Buyer's photo, 6 Nov 2026",
+    "text": "Buyer's photo (6 Nov 2026): Buyer's photo of the sweater received, attached to the claim.",
+    "facts": "{\"who\":\"buyer\",\"path\":\"demo/sweater-buyer.png\",\"taken_at\":\"2026-11-06\",\"caption\":\"Buyer's photo of the sweater received, attached to the claim\"}",
+    "collected_at": "2026-11-12T15:56:51.754Z"
+   }
+  ],
+  "events": [
+   {
+    "id": 1,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-10T14:20:02.740Z",
+    "type": "dispute:opened",
+    "detail": "Buyer opened the dispute: \"I never received the scarf I paid for.\""
+   },
+   {
+    "id": 2,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-08T14:20:02.740Z",
+    "type": "dispute:opened",
+    "detail": "Buyer opened the dispute: \"The colour is wrong. The listing says navy but the sweater is black.\""
+   },
+   {
+    "id": 3,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-05T14:20:02.740Z",
+    "type": "dispute:opened",
+    "detail": "Buyer opened the dispute: \"I ordered a mug three weeks ago and nothing has arrived.\""
+   },
+   {
+    "id": 12,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:19.890Z",
+    "type": "dispute:opened",
+    "detail": "manual import: PayPal status UNDER_REVIEW"
+   },
+   {
+    "id": 13,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:19.891Z",
+    "type": "state:GATHERING",
+    "detail": "Started collecting evidence"
+   },
+   {
+    "id": 14,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:19.911Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, MSG-001, POL-001"
+   },
+   {
+    "id": 15,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:19.911Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 16,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:19.911Z",
+    "type": "evidence:missing",
+    "detail": "No listing snapshot available for the item."
+   },
+   {
+    "id": 17,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:24:37.079Z",
+    "type": "dispute:updated",
+    "detail": "sync: PayPal status UNDER_REVIEW"
+   },
+   {
+    "id": 18,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:33:55.481Z",
+    "type": "agent:started",
+    "detail": "AI agent started"
+   },
+   {
+    "id": 19,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:04.757Z",
+    "type": "agent:summary",
+    "detail": "The buyer claims the sweater received is black rather than navy as described in the listing."
+   },
+   {
+    "id": 20,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.385Z",
+    "type": "evidence:collected",
+    "detail": "Saved IMG-001, IMG-002"
+   },
+   {
+    "id": 21,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.386Z",
+    "type": "evidence:collected",
+    "detail": "Saved MSG-001, MSG-002, MSG-003"
+   },
+   {
+    "id": 22,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.387Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001"
+   },
+   {
+    "id": 23,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.387Z",
+    "type": "evidence:collected",
+    "detail": "Saved POL-001"
+   },
+   {
+    "id": 24,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.388Z",
+    "type": "evidence:collected",
+    "detail": "Saved LST-001"
+   },
+   {
+    "id": 25,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.388Z",
+    "type": "agent:tool",
+    "detail": "get_photos → IMG-001, IMG-002"
+   },
+   {
+    "id": 26,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.388Z",
+    "type": "agent:tool",
+    "detail": "get_messages → MSG-001, MSG-002, MSG-003"
+   },
+   {
+    "id": 27,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.389Z",
+    "type": "agent:tool",
+    "detail": "get_payment → PAY-001"
+   },
+   {
+    "id": 28,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.389Z",
+    "type": "evidence:collected",
+    "detail": "Saved ORD-001"
+   },
+   {
+    "id": 29,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.390Z",
+    "type": "evidence:collected",
+    "detail": "Saved TRK-001, DLV-001"
+   },
+   {
+    "id": 30,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.390Z",
+    "type": "agent:tool",
+    "detail": "get_policy → POL-001"
+   },
+   {
+    "id": 31,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.390Z",
+    "type": "agent:tool",
+    "detail": "get_listing → LST-001"
+   },
+   {
+    "id": 32,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.390Z",
+    "type": "agent:tool",
+    "detail": "get_order → ORD-001"
+   },
+   {
+    "id": 33,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:34:15.391Z",
+    "type": "agent:tool",
+    "detail": "get_tracking → TRK-001, DLV-001"
+   },
+   {
+    "id": 34,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:35:08.793Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_CONFIRMS_RECEIPT: \"The sweater arrived\""
+   },
+   {
+    "id": 35,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:35:08.794Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_REPORTS_PROBLEM: \"it looks almost black, not navy like the photos.\""
+   },
+   {
+    "id": 36,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:35:08.794Z",
+    "type": "agent:message",
+    "detail": "MSG-002 SELLER_OFFERS_HELP: \"Could you send a photo in daylight?\""
+   },
+   {
+    "id": 37,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:35:08.794Z",
+    "type": "agent:message",
+    "detail": "MSG-003 BUYER_REQUESTS_REFUND: \"I'd like a refund.\""
+   },
+   {
+    "id": 38,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:36:09.512Z",
+    "type": "agent:photos",
+    "detail": "colour: consistent (confidence 0.88)"
+   },
+   {
+    "id": 39,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:36:09.513Z",
+    "type": "agent:finished",
+    "detail": "Evidence ready: 11 record(s)"
+   },
+   {
+    "id": 49,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:41:15.548Z",
+    "type": "agent:started",
+    "detail": "AI agent started"
+   },
+   {
+    "id": 50,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:07.734Z",
+    "type": "agent:summary",
+    "detail": "The buyer claims that the Jaipur blue pottery mug ordered three weeks ago has not arrived."
+   },
+   {
+    "id": 51,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.197Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001"
+   },
+   {
+    "id": 52,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.197Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 53,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.198Z",
+    "type": "evidence:collected",
+    "detail": "Saved MSG-001"
+   },
+   {
+    "id": 54,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.198Z",
+    "type": "agent:tool",
+    "detail": "get_payment → PAY-001"
+   },
+   {
+    "id": 55,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.199Z",
+    "type": "evidence:collected",
+    "detail": "Saved ORD-001"
+   },
+   {
+    "id": 56,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.199Z",
+    "type": "agent:tool",
+    "detail": "get_tracking (missing: No tracking number was ever added to this order.)"
+   },
+   {
+    "id": 57,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.199Z",
+    "type": "agent:tool",
+    "detail": "get_messages → MSG-001"
+   },
+   {
+    "id": 58,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:42:11.199Z",
+    "type": "agent:tool",
+    "detail": "get_order → ORD-001"
+   },
+   {
+    "id": 59,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:50.999Z",
+    "type": "agent:fallback",
+    "detail": "AI unavailable, gathering by rules: All Gemini models failed for evidence gathering:"
+   },
+   {
+    "id": 60,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:51.001Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, MSG-001, POL-001"
+   },
+   {
+    "id": 61,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:51.001Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 62,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:51.001Z",
+    "type": "agent:rules",
+    "detail": "Also fetched payment, order, tracking, delivery, message, policy"
+   },
+   {
+    "id": 63,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:58.709Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_REPORTS_PROBLEM: \"It's been three weeks.\""
+   },
+   {
+    "id": 64,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:43:58.709Z",
+    "type": "agent:finished",
+    "detail": "Evidence ready: 5 record(s)"
+   },
+   {
+    "id": 65,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:44:00.216Z",
+    "type": "agent:started",
+    "detail": "AI agent started"
+   },
+   {
+    "id": 66,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:44:19.491Z",
+    "type": "agent:summary",
+    "detail": "The buyer claims that they never received the hand-block printed cotton scarf."
+   },
+   {
+    "id": 67,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:16.043Z",
+    "type": "agent:fallback",
+    "detail": "AI unavailable, gathering by rules: All Gemini models failed for evidence gathering:"
+   },
+   {
+    "id": 68,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:16.071Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, MSG-001, POL-001"
+   },
+   {
+    "id": 69,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:16.071Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 70,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:16.071Z",
+    "type": "agent:rules",
+    "detail": "Also fetched payment, order, tracking, delivery, message, policy"
+   },
+   {
+    "id": 71,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:22.065Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_REPORTS_PROBLEM: \"I never received the scarf\""
+   },
+   {
+    "id": 72,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:45:22.066Z",
+    "type": "agent:finished",
+    "detail": "Evidence ready: 4 record(s)"
+   },
+   {
+    "id": 73,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:47:07.043Z",
+    "type": "agent:started",
+    "detail": "AI agent started"
+   },
+   {
+    "id": 74,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:47:53.995Z",
+    "type": "agent:summary",
+    "detail": "The buyer states the scarf was never received and wants it resolved."
+   },
+   {
+    "id": 75,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.032Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001"
+   },
+   {
+    "id": 76,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.033Z",
+    "type": "evidence:collected",
+    "detail": "Saved MSG-001"
+   },
+   {
+    "id": 77,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.033Z",
+    "type": "agent:tool",
+    "detail": "get_payment → PAY-001"
+   },
+   {
+    "id": 78,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.034Z",
+    "type": "evidence:collected",
+    "detail": "Saved ORD-001"
+   },
+   {
+    "id": 79,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.035Z",
+    "type": "evidence:collected",
+    "detail": "Saved TRK-001, DLV-001"
+   },
+   {
+    "id": 80,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.035Z",
+    "type": "agent:tool",
+    "detail": "get_messages → MSG-001"
+   },
+   {
+    "id": 81,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.035Z",
+    "type": "agent:tool",
+    "detail": "get_order → ORD-001"
+   },
+   {
+    "id": 82,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:48:01.035Z",
+    "type": "agent:tool",
+    "detail": "get_tracking → TRK-001, DLV-001"
+   },
+   {
+    "id": 83,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:49:14.952Z",
+    "type": "evidence:collected",
+    "detail": "Saved POL-001"
+   },
+   {
+    "id": 84,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:49:14.952Z",
+    "type": "agent:tool",
+    "detail": "get_policy → POL-001"
+   },
+   {
+    "id": 85,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:49:20.170Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_CONFIRMS_RECEIPT: \"Got it\""
+   },
+   {
+    "id": 86,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:49:20.170Z",
+    "type": "agent:message",
+    "detail": "MSG-001 BUYER_ACCEPTS_ITEM: \"love it! The colours are even nicer in person.\""
+   },
+   {
+    "id": 87,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:49:20.170Z",
+    "type": "agent:finished",
+    "detail": "Evidence ready: 7 record(s)"
+   },
+   {
+    "id": 88,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:56:51.750Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, LST-001, MSG-001, POL-001"
+   },
+   {
+    "id": 89,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:56:51.750Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 90,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:56:51.750Z",
+    "type": "evidence:missing",
+    "detail": "No photos from the seller or the buyer."
+   },
+   {
+    "id": 91,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:56:51.755Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, TRK-001, DLV-001, LST-001, IMG-001, IMG-002, MSG-001, MSG-002, MSG-003, POL-001"
+   },
+   {
+    "id": 92,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:56:51.758Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, TRK-001, DLV-001, LST-001, MSG-001, POL-001"
+   },
+   {
+    "id": 93,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:56:51.758Z",
+    "type": "evidence:missing",
+    "detail": "No photos from the seller or the buyer."
+   },
+   {
+    "id": 94,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:56:51.761Z",
+    "type": "evidence:collected",
+    "detail": "Saved PAY-001, ORD-001, MSG-001, POL-001"
+   },
+   {
+    "id": 95,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:56:51.761Z",
+    "type": "evidence:missing",
+    "detail": "No tracking number was ever added to this order."
+   },
+   {
+    "id": 96,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:56:51.761Z",
+    "type": "evidence:missing",
+    "detail": "No listing snapshot available for the item."
+   },
+   {
+    "id": 97,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:56:51.761Z",
+    "type": "evidence:missing",
+    "detail": "No photos from the seller or the buyer."
+   },
+   {
+    "id": 98,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:57:21.054Z",
+    "type": "state:SCORED",
+    "detail": "Score 0: Accept (+10 Shipped within the stated handling time (3 business days); -40 No tracking at all)"
+   },
+   {
+    "id": 99,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:57:39.806Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 1 attempt(s) (gemini-3.5-flash-lite)"
+   },
+   {
+    "id": 100,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T15:57:39.807Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 101,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:57:39.813Z",
+    "type": "state:SCORED",
+    "detail": "Score 55: Offer a partial refund (+30 Listing clearly states the disputed attribute (colour); +15 AI photo check: buyer's photo is consistent with the listing (confidence 70% or more); +10 Listing or policy warns this can vary)"
+   },
+   {
+    "id": 102,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:58:05.291Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 3 attempt(s) (gemini-3.5-flash-lite)"
+   },
+   {
+    "id": 103,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T15:58:05.291Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 104,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:58:05.292Z",
+    "type": "state:SCORED",
+    "detail": "Score 80: Contest (+30 Tracking number exists and matches the buyer's address; +30 Carrier shows the parcel delivered; +10 Shipped within the stated handling time (3 business days); +10 Buyer's messages acknowledge receipt)"
+   },
+   {
+    "id": 105,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:58:23.641Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 1 attempt(s) (gemini-3.5-flash-lite)"
+   },
+   {
+    "id": 106,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T15:58:23.642Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 107,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:58:23.643Z",
+    "type": "state:SCORED",
+    "detail": "Score 0: Accept (-40 No tracking at all)"
+   },
+   {
+    "id": 108,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:58:31.121Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 1 attempt(s) (gemini-3.5-flash-lite)"
+   },
+   {
+    "id": 109,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T15:58:31.121Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 110,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:00:03.540Z",
+    "type": "state:SCORED",
+    "detail": "Score 80: Contest (+30 Tracking number exists and matches the buyer's address; +30 Carrier shows the parcel delivered; +10 Shipped within the stated handling time (3 business days); +10 Buyer's messages acknowledge receipt)"
+   },
+   {
+    "id": 111,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:01:17.361Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 1 attempt(s) (template (AI unavailable))"
+   },
+   {
+    "id": 112,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:01:17.362Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 113,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:02:36.635Z",
+    "type": "state:SCORED",
+    "detail": "Score 80: Contest (+30 Tracking number exists and matches the buyer's address; +30 Carrier shows the parcel delivered; +10 Shipped within the stated handling time (3 business days); +10 Buyer's messages acknowledge receipt)"
+   },
+   {
+    "id": 114,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:04:52.799Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 3 attempt(s) (template (AI unavailable))"
+   },
+   {
+    "id": 115,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:04:52.799Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 116,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T16:22:49.843Z",
+    "type": "state:APPROVED",
+    "detail": "Seller approved: Accept the claim and refund 40.00 USD"
+   },
+   {
+    "id": 117,
+    "dispute_id": "DEMO-1003",
+    "at": "2026-11-12T16:23:04.743Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Seller reopened the dispute for review"
+   },
+   {
+    "id": 118,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.666Z",
+    "type": "draft:edited",
+    "detail": "Seller edited the draft; it passed the citation check (2 sentences)"
+   },
+   {
+    "id": 119,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.669Z",
+    "type": "state:APPROVED",
+    "detail": "Seller approved: Contest the dispute: send the statement and the evidence PDF to PayPal"
+   },
+   {
+    "id": 120,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.671Z",
+    "type": "draft:edited",
+    "detail": "Seller edited the draft; it passed the citation check (2 sentences)"
+   },
+   {
+    "id": 121,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.672Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Edited after approval; needs approving again"
+   },
+   {
+    "id": 122,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.675Z",
+    "type": "state:MANUAL",
+    "detail": "Seller chose to handle this dispute themselves; the agent will not send anything"
+   },
+   {
+    "id": 123,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:23:24.677Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Seller reopened the dispute for review"
+   },
+   {
+    "id": 125,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:31:50.924Z",
+    "type": "state:APPROVED",
+    "detail": "Seller approved: Contest the dispute: send the statement and the evidence PDF to PayPal"
+   },
+   {
+    "id": 126,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:31:51.065Z",
+    "type": "state:SUBMITTED",
+    "detail": "Demo dispute: provide_evidence prepared but not sent to PayPal (no real dispute exists)"
+   },
+   {
+    "id": 127,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:31:51.068Z",
+    "type": "state:RESOLVED",
+    "detail": "Demo decision: seller wins (simulated, not PayPal)"
+   },
+   {
+    "id": 128,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:31:51.072Z",
+    "type": "outcome",
+    "detail": "Won (seller's favour) (DEMO_SELLER_FAVOUR)"
+   },
+   {
+    "id": 129,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T16:31:55.317Z",
+    "type": "paypal:status",
+    "detail": "UNDER_REVIEW → WAITING_FOR_SELLER_RESPONSE (e2e test refresh)"
+   },
+   {
+    "id": 130,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T16:34:36.893Z",
+    "type": "state:APPROVED",
+    "detail": "Seller approved: Offer the buyer a partial refund of 20.00 USD, with the message"
+   },
+   {
+    "id": 131,
+    "dispute_id": "DEMO-1002",
+    "at": "2026-11-12T16:34:36.896Z",
+    "type": "state:SUBMITTED",
+    "detail": "Demo dispute: make_offer prepared but not sent to PayPal (no real dispute exists)"
+   },
+   {
+    "id": 132,
+    "dispute_id": "PP-R-IVY-10200275",
+    "at": "2026-11-12T16:35:14.707Z",
+    "type": "paypal:status",
+    "detail": "WAITING_FOR_SELLER_RESPONSE → UNDER_REVIEW (manual refresh)"
+   },
+   {
+    "id": 136,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:45:16.325Z",
+    "type": "state:SCORED",
+    "detail": "Score 80: Contest (+30 Tracking number exists and matches the buyer's address; +30 Carrier shows the parcel delivered; +10 Shipped within the stated handling time (3 business days); +10 Buyer's messages acknowledge receipt)"
+   },
+   {
+    "id": 137,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:45:41.612Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 3 attempt(s) (gemini-3.5-flash-lite)"
+   },
+   {
+    "id": 138,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:45:41.612Z",
+    "type": "check:removed",
+    "detail": "Removed 1 sentence(s) that could not be proven"
+   },
+   {
+    "id": 139,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:45:41.614Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   },
+   {
+    "id": 140,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:46:04.442Z",
+    "type": "state:SCORED",
+    "detail": "Score 80: Contest (+30 Tracking number exists and matches the buyer's address; +30 Carrier shows the parcel delivered; +10 Shipped within the stated handling time (3 business days); +10 Buyer's messages acknowledge receipt)"
+   },
+   {
+    "id": 141,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:46:53.339Z",
+    "type": "state:DRAFTED",
+    "detail": "Draft passed the citation check after 1 attempt(s) (template (AI unavailable))"
+   },
+   {
+    "id": 142,
+    "dispute_id": "DEMO-1001",
+    "at": "2026-11-12T16:46:53.340Z",
+    "type": "state:AWAITING_APPROVAL",
+    "detail": "Waiting for the seller to approve, edit or handle it themselves"
+   }
+  ],
+  "analysis": [
+   {
+    "dispute_id": "DEMO-1002",
+    "data": "{\"disputeId\":\"DEMO-1002\",\"summary\":{\"summary\":\"The buyer claims the sweater received is black rather than navy as described in the listing.\",\"buyerWants\":\"unclear\",\"keyQuestion\":\"Does the delivered sweater match the navy color description in the listing?\"},\"steps\":[{\"step\":1,\"tool\":\"get_photos\",\"input\":{\"why\":\"To compare the listing photos, seller packing photos, and buyer photos of the sweater color.\"},\"saved\":[\"IMG-001\",\"IMG-002\"],\"missing\":[]},{\"step\":2,\"tool\":\"get_messages\",\"input\":{\"why\":\"To review buyer and seller communications regarding the sweater color issue.\"},\"saved\":[\"MSG-001\",\"MSG-002\",\"MSG-003\"],\"missing\":[]},{\"step\":3,\"tool\":\"get_payment\",\"input\":{\"why\":\"To verify transaction details, payment amount, and buyer information.\"},\"saved\":[\"PAY-001\"],\"missing\":[]},{\"step\":4,\"tool\":\"get_policy\",\"input\":{\"why\":\"To review the seller's published returns policy.\"},\"saved\":[\"POL-001\"],\"missing\":[]},{\"step\":5,\"tool\":\"get_listing\",\"input\":{\"why\":\"To verify the listed sweater color and item description at the time of sale.\"},\"saved\":[\"LST-001\"],\"missing\":[]},{\"step\":6,\"tool\":\"get_order\",\"input\":{\"why\":\"To check the ordered item details, quantity, and shipping record.\"},\"saved\":[\"ORD-001\"],\"missing\":[]},{\"step\":7,\"tool\":\"get_tracking\",\"input\":{\"why\":\"To confirm delivery status and shipping confirmation.\"},\"saved\":[\"TRK-001\",\"DLV-001\"],\"missing\":[]}],\"gatheringNote\":\"Gathered listing, photos, buyer messages, payment, order, tracking, and seller shop policy details regarding natural dye variation for the navy merino sweater.\",\"messageFindings\":[{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_CONFIRMS_RECEIPT\",\"quote\":\"The sweater arrived\",\"explanation\":\"The buyer confirms receiving the item.\"},{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_REPORTS_PROBLEM\",\"quote\":\"it looks almost black, not navy like the photos.\",\"explanation\":\"The buyer reports that the item's color does not match the description.\"},{\"evidenceId\":\"MSG-002\",\"signal\":\"SELLER_OFFERS_HELP\",\"quote\":\"Could you send a photo in daylight?\",\"explanation\":\"The seller asks the buyer for more details to assist with the issue.\"},{\"evidenceId\":\"MSG-003\",\"signal\":\"BUYER_REQUESTS_REFUND\",\"quote\":\"I'd like a refund.\",\"explanation\":\"The buyer formally asks for money back.\"}],\"rejectedFindings\":0,\"photoFinding\":{\"attribute\":\"colour\",\"listingShows\":\"A dark navy blue hand-knit sweater in bright daylight.\",\"buyerPhotoShows\":\"A very dark navy/black sweater under dim, warm, underexposed indoor lighting.\",\"verdict\":\"consistent\",\"factors\":\"The buyer's photo has warm, dim ambient lighting and underexposure, which causes a dark navy blue sweater to appear black on camera.\",\"confidence\":0.88,\"citedIds\":[\"IMG-001\",\"IMG-002\"]},\"models\":{\"summary\":\"gemini-3.5-flash\",\"gathering\":\"gemini-3.5-flash\",\"messages\":\"gemini-3.5-flash\",\"photos\":\"gemini-3.5-flash\"},\"updatedAt\":\"2026-11-12T15:36:09.513Z\"}",
+    "updated_at": "2026-11-12T15:36:09.513Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "data": "{\"disputeId\":\"DEMO-1001\",\"summary\":{\"summary\":\"The buyer states the scarf was never received and wants it resolved.\",\"buyerWants\":\"unclear\",\"keyQuestion\":\"Was the scarf delivered to the buyer's address?\"},\"steps\":[{\"step\":1,\"tool\":\"get_payment\",\"input\":{\"why\":\"Verify payment was received for the disputed transaction.\"},\"saved\":[\"PAY-001\"],\"missing\":[]},{\"step\":2,\"tool\":\"get_messages\",\"input\":{\"why\":\"Check communications between buyer and seller regarding delivery.\"},\"saved\":[\"MSG-001\"],\"missing\":[]},{\"step\":3,\"tool\":\"get_order\",\"input\":{\"why\":\"Check the order details including the shipping address.\"},\"saved\":[\"ORD-001\"],\"missing\":[]},{\"step\":4,\"tool\":\"get_tracking\",\"input\":{\"why\":\"Check delivery status and confirmation for the shipping address.\"},\"saved\":[\"TRK-001\",\"DLV-001\"],\"missing\":[]},{\"step\":5,\"tool\":\"get_policy\",\"input\":{\"why\":\"Understand the seller's shipping and delivery commitments.\"},\"saved\":[\"POL-001\"],\"missing\":[]}],\"gatheringNote\":\"I have confirmed the payment, order address, tracking showing delivery to that address, and a message from the buyer confirming receipt and satisfaction.\",\"messageFindings\":[{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_CONFIRMS_RECEIPT\",\"quote\":\"Got it\",\"explanation\":\"The buyer confirms that the item has been delivered.\"},{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_ACCEPTS_ITEM\",\"quote\":\"love it! The colours are even nicer in person.\",\"explanation\":\"The buyer expresses satisfaction and acceptance of the item.\"}],\"rejectedFindings\":0,\"photoFinding\":null,\"models\":{\"summary\":\"gemini-3.5-flash-lite\",\"gathering\":\"gemini-3-flash-preview\",\"messages\":\"gemini-3-flash-preview\"},\"updatedAt\":\"2026-11-12T15:49:20.170Z\"}",
+    "updated_at": "2026-11-12T15:49:20.170Z"
+   },
+   {
+    "dispute_id": "DEMO-1003",
+    "data": "{\"disputeId\":\"DEMO-1003\",\"summary\":{\"summary\":\"The buyer claims that the Jaipur blue pottery mug ordered three weeks ago has not arrived.\",\"buyerWants\":\"unclear\",\"keyQuestion\":\"Was the mug delivered to the buyer's address?\"},\"steps\":[{\"step\":1,\"tool\":\"rules\",\"input\":{\"kinds\":[\"payment\",\"order\",\"tracking\",\"delivery\",\"message\",\"policy\"]},\"saved\":[\"PAY-001\",\"ORD-001\",\"MSG-001\",\"POL-001\"],\"missing\":[\"No tracking number was ever added to this order.\"]}],\"gatheringNote\":\"Gathered by fixed rules because the AI model was unavailable.\",\"messageFindings\":[{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_REPORTS_PROBLEM\",\"quote\":\"It's been three weeks.\",\"explanation\":\"The buyer reports a delay in the delivery of their order.\"}],\"rejectedFindings\":0,\"photoFinding\":null,\"models\":{\"summary\":\"gemini-3.5-flash\",\"gathering\":\"rules fallback\",\"messages\":\"gemini-3.5-flash\"},\"updatedAt\":\"2026-11-12T15:43:58.709Z\"}",
+    "updated_at": "2026-11-12T15:43:58.709Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "data": "{\"disputeId\":\"PP-R-IVY-10200275\",\"summary\":{\"summary\":\"The buyer claims that they never received the hand-block printed cotton scarf.\",\"buyerWants\":\"unclear\",\"keyQuestion\":\"Was the item delivered to the buyer's address?\"},\"steps\":[{\"step\":1,\"tool\":\"rules\",\"input\":{\"kinds\":[\"payment\",\"order\",\"tracking\",\"delivery\",\"message\",\"policy\"]},\"saved\":[\"PAY-001\",\"ORD-001\",\"MSG-001\",\"POL-001\"],\"missing\":[\"No tracking number was ever added to this order.\"]}],\"gatheringNote\":\"Gathered by fixed rules because the AI model was unavailable.\",\"messageFindings\":[{\"evidenceId\":\"MSG-001\",\"signal\":\"BUYER_REPORTS_PROBLEM\",\"quote\":\"I never received the scarf\",\"explanation\":\"The buyer reports that the item was not delivered.\"}],\"rejectedFindings\":0,\"photoFinding\":null,\"models\":{\"summary\":\"gemini-3.5-flash\",\"gathering\":\"rules fallback\",\"messages\":\"gemini-3.5-flash\"},\"updatedAt\":\"2026-11-12T15:45:22.066Z\"}",
+    "updated_at": "2026-11-12T15:45:22.066Z"
+   }
+  ],
+  "case_files": [
+   {
+    "dispute_id": "DEMO-1003",
+    "data": "{\"disputeId\":\"DEMO-1003\",\"score\":{\"score\":0,\"band\":\"ACCEPT\",\"rules\":[{\"id\":\"tracking_match\",\"label\":\"Tracking number exists and matches the buyer's address\",\"points\":30,\"met\":false,\"cites\":[]},{\"id\":\"delivered\",\"label\":\"Carrier shows the parcel delivered\",\"points\":30,\"met\":false,\"cites\":[]},{\"id\":\"delivery_proof\",\"label\":\"Delivery signature or photo exists\",\"points\":20,\"met\":false,\"cites\":[]},{\"id\":\"shipped_on_time\",\"label\":\"Shipped within the stated handling time (3 business days)\",\"points\":10,\"met\":true,\"cites\":[\"ORD-001\",\"POL-001\"]},{\"id\":\"buyer_ack\",\"label\":\"Buyer's messages acknowledge receipt\",\"points\":10,\"met\":false,\"cites\":[]},{\"id\":\"no_tracking\",\"label\":\"No tracking at all\",\"points\":-40,\"met\":true,\"cites\":[\"ORD-001\"]},{\"id\":\"seller_admits\",\"label\":\"Seller's own messages admit a defect or mistake\",\"points\":-50,\"met\":false,\"cites\":[]}],\"offer\":null,\"advice\":[\"Add tracking to every order. It is the strongest defence against \\\"item not received\\\" claims.\"]},\"draft\":{\"band\":\"ACCEPT\",\"audience\":\"paypal\",\"text\":\"I accept the buyer's claim regarding the payment of 40.00 USD made on 12 Oct 2026 for the Jaipur blue pottery mug [PAY-001, ORD-001]. There is no tracking number available for Order AHS-2017 shipped to Austin 78701, United States, meaning I cannot prove delivery [ORD-001].\",\"evidenceType\":null,\"check\":{\"ok\":true,\"sentences\":2,\"problems\":[]},\"attempts\":1,\"removed\":[],\"model\":\"gemini-3.5-flash-lite\"},\"updatedAt\":\"2026-11-12T16:47:05.263Z\",\"approval\":null}",
+    "updated_at": "2026-11-12T16:47:05.263Z"
+   },
+   {
+    "dispute_id": "DEMO-1002",
+    "data": "{\"disputeId\":\"DEMO-1002\",\"score\":{\"score\":55,\"band\":\"OFFER\",\"rules\":[{\"id\":\"listing_states_attribute\",\"label\":\"Listing clearly states the disputed attribute (colour)\",\"points\":30,\"met\":true,\"cites\":[\"LST-001\"]},{\"id\":\"preship_photos_match\",\"label\":\"Photos taken before shipping match the listing\",\"points\":25,\"met\":false,\"cites\":[]},{\"id\":\"buyer_no_proof\",\"label\":\"Buyer has not provided photos or proof\",\"points\":15,\"met\":false,\"cites\":[]},{\"id\":\"buyer_accepted\",\"label\":\"Buyer accepted the item in messages\",\"points\":15,\"met\":false,\"cites\":[]},{\"id\":\"vision_consistent\",\"label\":\"AI photo check: buyer's photo is consistent with the listing (confidence 70% or more)\",\"points\":15,\"met\":true,\"cites\":[\"IMG-001\",\"IMG-002\"]},{\"id\":\"variation_disclosed\",\"label\":\"Listing or policy warns this can vary\",\"points\":10,\"met\":true,\"cites\":[\"LST-001\",\"POL-001\"]},{\"id\":\"seller_admits\",\"label\":\"Seller's own messages admit a defect or mistake\",\"points\":-50,\"met\":false,\"cites\":[]}],\"offer\":{\"percent\":25,\"amount\":\"20.00\",\"currency\":\"USD\"},\"advice\":[\"Photograph each item before packing. Pre-shipping photos win \\\"not as described\\\" claims.\"]},\"draft\":{\"band\":\"OFFER\",\"audience\":\"buyer\",\"text\":\"Thank you for reaching out to us about your order. Our shop policy notes that our textiles are dyed by hand with natural dyes, so colour can vary slightly between pieces and from screen photos [POL-001]. Based on the payment record 8KM20455RT913522W of 80.00 USD, we propose a partial refund of 20.00 USD while you keep the item [PAY-001]. Thank you for your patience.\",\"evidenceType\":null,\"check\":{\"ok\":true,\"sentences\":4,\"problems\":[]},\"attempts\":3,\"removed\":[],\"model\":\"gemini-3.5-flash-lite\"},\"updatedAt\":\"2026-11-12T16:47:05.273Z\",\"approval\":null}",
+    "updated_at": "2026-11-12T16:47:05.273Z"
+   },
+   {
+    "dispute_id": "DEMO-1001",
+    "data": "{\"disputeId\":\"DEMO-1001\",\"score\":{\"score\":80,\"band\":\"CONTEST\",\"rules\":[{\"id\":\"tracking_match\",\"label\":\"Tracking number exists and matches the buyer's address\",\"points\":30,\"met\":true,\"cites\":[\"TRK-001\"]},{\"id\":\"delivered\",\"label\":\"Carrier shows the parcel delivered\",\"points\":30,\"met\":true,\"cites\":[\"DLV-001\"]},{\"id\":\"delivery_proof\",\"label\":\"Delivery signature or photo exists\",\"points\":20,\"met\":false,\"cites\":[]},{\"id\":\"shipped_on_time\",\"label\":\"Shipped within the stated handling time (3 business days)\",\"points\":10,\"met\":true,\"cites\":[\"ORD-001\",\"POL-001\"]},{\"id\":\"buyer_ack\",\"label\":\"Buyer's messages acknowledge receipt\",\"points\":10,\"met\":true,\"cites\":[\"MSG-001\"]},{\"id\":\"no_tracking\",\"label\":\"No tracking at all\",\"points\":-40,\"met\":false,\"cites\":[]},{\"id\":\"seller_admits\",\"label\":\"Seller's own messages admit a defect or mistake\",\"points\":-50,\"met\":false,\"cites\":[]}],\"offer\":null,\"advice\":[\"For orders over $100, use signature confirmation.\"]},\"draft\":{\"band\":\"CONTEST\",\"audience\":\"paypal\",\"text\":\"The order was sent with DHL Express tracking 4719336502 on 30 Oct 2026, addressed to postcode 10115, which matches the buyer's shipping address [TRK-001]. The carrier shows the parcel delivered to postcode 10115 on 4 Nov 2026 [DLV-001]. It was paid for on 28 Oct 2026 and marked shipped on 30 Oct 2026, within the shop's stated handling time of 3 business days [ORD-001, POL-001]. On 5 Nov 2026 the buyer wrote: \\\"Got it, love it! The colours are even nicer in person.\\\" [MSG-001]\",\"evidenceType\":\"PROOF_OF_FULFILLMENT\",\"check\":{\"ok\":true,\"sentences\":4,\"problems\":[]},\"attempts\":1,\"removed\":[],\"model\":\"template (AI unavailable)\"},\"updatedAt\":\"2026-11-12T16:47:05.274Z\",\"approval\":null}",
+    "updated_at": "2026-11-12T16:47:05.274Z"
+   },
+   {
+    "dispute_id": "PP-R-IVY-10200275",
+    "data": "{\"disputeId\":\"PP-R-IVY-10200275\",\"score\":{\"score\":0,\"band\":\"ACCEPT\",\"rules\":[{\"id\":\"tracking_match\",\"label\":\"Tracking number exists and matches the buyer's address\",\"points\":30,\"met\":false,\"cites\":[]},{\"id\":\"delivered\",\"label\":\"Carrier shows the parcel delivered\",\"points\":30,\"met\":false,\"cites\":[]},{\"id\":\"delivery_proof\",\"label\":\"Delivery signature or photo exists\",\"points\":20,\"met\":false,\"cites\":[]},{\"id\":\"shipped_on_time\",\"label\":\"Shipped within the stated handling time (3 business days)\",\"points\":10,\"met\":false,\"cites\":[]},{\"id\":\"buyer_ack\",\"label\":\"Buyer's messages acknowledge receipt\",\"points\":10,\"met\":false,\"cites\":[]},{\"id\":\"no_tracking\",\"label\":\"No tracking at all\",\"points\":-40,\"met\":true,\"cites\":[\"ORD-001\"]},{\"id\":\"seller_admits\",\"label\":\"Seller's own messages admit a defect or mistake\",\"points\":-50,\"met\":false,\"cites\":[]}],\"offer\":null,\"advice\":[\"Add tracking to every order. It is the strongest defence against \\\"item not received\\\" claims.\"]},\"draft\":{\"band\":\"ACCEPT\",\"audience\":\"paypal\",\"text\":\"We accept the claim for the payment of 120.00 USD on 12 Nov 2026 [PAY-001]. The order test-1794495912693 was not marked as shipped and has no tracking at all [ORD-001].\",\"evidenceType\":null,\"check\":{\"ok\":true,\"sentences\":2,\"problems\":[]},\"attempts\":1,\"removed\":[],\"model\":\"gemini-3.5-flash-lite\"},\"updatedAt\":\"2026-11-12T15:58:31.121Z\"}",
+    "updated_at": "2026-11-12T15:58:31.121Z"
+   }
+  ],
+  "submissions": [],
+  "outcomes": []
+ }
+}

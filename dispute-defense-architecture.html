@@ -1,0 +1,316 @@
+<title>Dispute Defense Agent</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a step-by-step flow, a system map, then the free stack. Lane colours mark who does each step. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #16202b;
+  --muted: #5a6776;
+  --line: #dde2e8;
+  --accent: #0e6b5c;
+  --ai: #6b46c1;      --ai-bg: #f1ecfb;
+  --code: #2f5d8a;    --code-bg: #e9f0f7;
+  --rules: #4b5b6b;   --rules-bg: #eceff2;
+  --human: #a8560b;   --human-bg: #fbf0e3;
+  --warn-bg: #fff7e6; --warn-line: #f0d9a8;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1419; --surface: #171e26; --fg: #e6ebf0; --muted: #98a4b1; --line: #2a3440;
+    --accent: #4fc3ad;
+    --ai: #b79cf2; --ai-bg: #261f3a;
+    --code: #8db8e3; --code-bg: #1a2735;
+    --rules: #b0bcc8; --rules-bg: #222b35;
+    --human: #f0a860; --human-bg: #33240f;
+    --warn-bg: #2a2214; --warn-line: #5a4622;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1419; --surface: #171e26; --fg: #e6ebf0; --muted: #98a4b1; --line: #2a3440;
+  --accent: #4fc3ad;
+  --ai: #b79cf2; --ai-bg: #261f3a;
+  --code: #8db8e3; --code-bg: #1a2735;
+  --rules: #b0bcc8; --rules-bg: #222b35;
+  --human: #f0a860; --human-bg: #33240f;
+  --warn-bg: #2a2214; --warn-line: #5a4622;
+  color-scheme: dark;
+}
+
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 40px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 48px; }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { font-size: 16px; font-weight: 600; }
+p { margin: 0; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+
+header { display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 600; }
+.lede { color: var(--muted); max-width: 65ch; font-size: 16px; }
+
+section { display: flex; flex-direction: column; gap: 16px; }
+.section-head { display: flex; flex-direction: column; gap: 6px; }
+.section-head p { color: var(--muted); max-width: 65ch; }
+
+/* Legend + chips */
+.legend { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.t-ai { color: var(--ai); background: var(--ai-bg); }
+.t-code { color: var(--code); background: var(--code-bg); }
+.t-rules { color: var(--rules); background: var(--rules-bg); }
+.t-human { color: var(--human); background: var(--human-bg); }
+
+/* Flow */
+.flow { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; position: relative; padding-bottom: 18px; }
+.step:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 40px; bottom: 0; width: 2px; background: var(--line); }
+.num { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 15px; background: var(--surface); border: 2px solid var(--line); font-variant-numeric: tabular-nums; }
+.step[data-lane="ai"] .num { border-color: var(--ai); color: var(--ai); }
+.step[data-lane="code"] .num { border-color: var(--code); color: var(--code); }
+.step[data-lane="rules"] .num { border-color: var(--rules); color: var(--rules); }
+.step[data-lane="human"] .num { border-color: var(--human); color: var(--human); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.card-top .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.card p { color: var(--muted); }
+.stack-line { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--font-mono); font-size: 12px; padding: 2px 8px; border-radius: 5px; border: 1px solid var(--line); color: var(--fg); background: var(--bg); }
+.loop-note { font-size: 13px; color: var(--accent); font-weight: 500; }
+
+/* Diagram */
+.diagram { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; }
+.diagram pre.mermaid { margin: 0; background: transparent; min-width: 640px; }
+
+/* Stack table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; background: var(--bg); }
+tr:last-child td { border-bottom: none; }
+td.steps { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+td strong { font-weight: 600; }
+
+/* Notes */
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.note { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.note p { color: var(--fg); font-size: 14px; }
+.first { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.first ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+footer { color: var(--muted); font-size: 13px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Architecture · free stack · PayPal sandbox</div>
+    <h1>Dispute Defense Agent</h1>
+    <p class="lede">An agent that reads a PayPal buyer dispute, gathers the seller's real records, scores the case with fixed rules, and drafts a cited evidence packet. It only submits to PayPal after the seller approves. Every part of the stack below is free.</p>
+    <div class="legend" aria-label="Who does each step">
+      <span class="tag t-ai">AI</span>
+      <span class="tag t-rules">Rules</span>
+      <span class="tag t-code">Code</span>
+      <span class="tag t-human">Human</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>How a dispute moves through the agent</h2>
+      <p>From the moment a buyer opens a dispute to the final outcome. The colour of each number shows who does that step.</p>
+    </div>
+    <ol class="flow">
+      <li class="step" data-lane="code">
+        <div class="num">1</div>
+        <div class="card">
+          <div class="card-top"><h3>Detect</h3><div class="tags"><span class="tag t-code">Code</span></div></div>
+          <p>PayPal sends <code>CUSTOMER.DISPUTE.CREATED</code>. The app checks the signature is genuine and starts the deadline countdown. A scheduled poll catches any missed webhook.</p>
+          <div class="stack-line"><span class="chip">PayPal Webhooks</span><span class="chip">Next.js API route</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="ai">
+        <div class="num">2</div>
+        <div class="card">
+          <div class="card-top"><h3>Understand</h3><div class="tags"><span class="tag t-code">Code</span><span class="tag t-ai">AI</span></div></div>
+          <p>Fetch the dispute and map PayPal's reason code to a claim type: item not received, not as described, or unauthorized. The LLM writes a one-line summary of the buyer's complaint.</p>
+          <div class="stack-line"><span class="chip">Disputes API</span><span class="chip">Gemini (free tier)</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="ai">
+        <div class="num">3</div>
+        <div class="card">
+          <div class="card-top"><h3>Gather evidence</h3><div class="tags"><span class="tag t-ai">AI agent</span></div></div>
+          <p>The agent picks which tools to call for this claim type (payment, order, tracking, messages, photos) and keeps going until it has enough. It finds admissions in messages such as "got it, thanks", and compares buyer photos with listing photos. Each record is saved with an ID like <code>TRK-001</code> or <code>MSG-003</code>.</p>
+          <div class="stack-line"><span class="chip">Vercel AI SDK</span><span class="chip">PayPal Agent Toolkit</span><span class="chip">Transaction Search</span><span class="chip">Shipment Tracking</span><span class="chip">Orders v2</span><span class="chip">Gemini vision</span><span class="chip">SQLite</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="rules">
+        <div class="num">4</div>
+        <div class="card">
+          <div class="card-top"><h3>Score the case</h3><div class="tags"><span class="tag t-rules">Rules</span></div></div>
+          <p>Fixed points, for example tracking matches +30 and carrier shows delivered +30. A score of 70 or more means contest, 40 to 69 means offer a partial refund, and under 40 means accept. The breakdown is shown to the seller.</p>
+          <div class="stack-line"><span class="chip">TypeScript function</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="ai">
+        <div class="num">5</div>
+        <div class="card">
+          <div class="card-top"><h3>Draft the response</h3><div class="tags"><span class="tag t-ai">AI</span></div></div>
+          <p>An explanation of at most 150 words where every sentence cites an evidence ID. For an offer, it suggests a refund amount within limits the rules set.</p>
+          <div class="stack-line"><span class="chip">Gemini structured output</span><span class="chip">zod schema</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="code">
+        <div class="num">6</div>
+        <div class="card">
+          <div class="card-top"><h3>Check citations</h3><div class="tags"><span class="tag t-code">Code</span></div></div>
+          <p>Every cited ID must exist, and numbers, dates and tracking IDs must match the records exactly. A sentence that fails is removed or sent back.</p>
+          <p class="loop-note">Fails → back to step 5, at most 2 retries</p>
+          <div class="stack-line"><span class="chip">zod</span><span class="chip">TypeScript</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="code">
+        <div class="num">7</div>
+        <div class="card">
+          <div class="card-top"><h3>Build the PDF</h3><div class="tags"><span class="tag t-code">Code</span></div></div>
+          <p>Cover summary, tracking proof, listing snapshot and message excerpts in one evidence file.</p>
+          <div class="stack-line"><span class="chip">pdf-lib</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="human">
+        <div class="num">8</div>
+        <div class="card">
+          <div class="card-top"><h3>Seller approves</h3><div class="tags"><span class="tag t-human">Human</span></div></div>
+          <p>One screen with the countdown, score breakdown and draft, where each citation opens its source. The seller chooses Approve and submit, Edit, or Handle it myself. Nothing goes to PayPal without this click.</p>
+          <div class="stack-line"><span class="chip">Next.js</span><span class="chip">AG Grid Community</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="code">
+        <div class="num">9</div>
+        <div class="card">
+          <div class="card-top"><h3>Submit to PayPal</h3><div class="tags"><span class="tag t-code">Code</span></div></div>
+          <p>Contest with <code>provide-evidence</code>, offer with <code>make-offer</code>, or concede with <code>accept-claim</code>. Every request carries a unique <code>PayPal-Request-Id</code>, so a retry never submits twice.</p>
+          <div class="stack-line"><span class="chip">Disputes API</span><span class="chip">custom dispute tools</span></div>
+        </div>
+      </li>
+      <li class="step" data-lane="code">
+        <div class="num">10</div>
+        <div class="card">
+          <div class="card-top"><h3>Track the outcome</h3><div class="tags"><span class="tag t-code">Code</span></div></div>
+          <p>Listen for <code>CUSTOMER.DISPUTE.UPDATED</code> and <code>CUSTOMER.DISPUTE.RESOLVED</code>, log won, lost or settled, and update the playbook of which evidence wins.</p>
+          <div class="stack-line"><span class="chip">PayPal Webhooks</span><span class="chip">SQLite</span></div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>System map</h2>
+      <p>Where each piece runs and how they connect. Everything except the LLM lives inside one Next.js app.</p>
+    </div>
+    <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+  subgraph PP["PayPal Sandbox"]
+    WH["Webhooks"]
+    DIS["Disputes API"]
+    TS["Transaction Search"]
+    TR["Shipment Tracking"]
+    ORD["Orders v2"]
+  end
+  subgraph APP["Next.js app on Render"]
+    RCV["Webhook receiver + signature check"]
+    AG["Agent loop - Vercel AI SDK"]
+    TK["PayPal Agent Toolkit + custom dispute tools"]
+    SC["Rule scorer"]
+    VAL["Citation checker - zod"]
+    PDF["PDF builder - pdf-lib"]
+    DB[("SQLite evidence store")]
+    UI["Seller dashboard - AG Grid Community"]
+  end
+  subgraph LLM["Free LLM"]
+    GEM["Gemini API free tier"]
+    OLL["Ollama local fallback"]
+  end
+  WH --> RCV --> AG
+  AG <--> TK
+  TK --> DIS
+  TK --> TS
+  TK --> TR
+  TK --> ORD
+  AG <--> GEM
+  GEM -. "rate limited" .-> OLL
+  AG --> DB
+  AG --> SC --> VAL --> PDF --> UI
+  VAL -- "fails" --> AG
+  UI -- "Approve" --> TK
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>The free stack</h2>
+      <p>What each tool does and which steps use it. Nothing here needs a paid plan.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Choice</th><th>Steps</th><th>Why it's free</th></tr></thead>
+        <tbody>
+          <tr><td><strong>App</strong></td><td>Next.js + TypeScript</td><td class="steps">1–10</td><td>Open source. One app holds the dashboard, API routes and webhook receiver.</td></tr>
+          <tr><td><strong>LLM</strong></td><td>Google Gemini API, free tier (a Flash model)</td><td class="steps">2, 3, 5</td><td>Free tier with rate limits. Handles text, images, tool calling and JSON output with one key from Google AI Studio.</td></tr>
+          <tr><td><strong>LLM fallback</strong></td><td>Ollama, running locally (a Llama or Qwen model, plus a vision model)</td><td class="steps">2, 3, 5</td><td>Fully free and offline, with no rate limits.</td></tr>
+          <tr><td><strong>Agent framework</strong></td><td>Vercel AI SDK (<code>ai</code>)</td><td class="steps">3, 5</td><td>Open source. Switching between Gemini, Ollama and Groq is a one-line change.</td></tr>
+          <tr><td><strong>PayPal tools</strong></td><td>PayPal Agent Toolkit (<code>@paypal/agent-toolkit</code>)</td><td class="steps">2, 3, 9</td><td>Open source, and it plugs into the Vercel AI SDK.</td></tr>
+          <tr><td><strong>New dispute tools</strong></td><td><code>fetch</code> wrappers for provide-evidence, make-offer, send-message, appeal</td><td class="steps">9</td><td>Your own code. This is the gap you're filling.</td></tr>
+          <tr><td><strong>MCP extension</strong></td><td><code>@modelcontextprotocol/sdk</code></td><td class="steps">stretch</td><td>Open source. Lets any AI agent use your new dispute tools.</td></tr>
+          <tr><td><strong>PayPal</strong></td><td>Sandbox</td><td class="steps">1–3, 9, 10</td><td>Free developer account.</td></tr>
+          <tr><td><strong>Database</strong></td><td>SQLite (<code>better-sqlite3</code>)</td><td class="steps">3, 10</td><td>Free, a single file.</td></tr>
+          <tr><td><strong>Validation</strong></td><td>zod</td><td class="steps">5, 6</td><td>Open source.</td></tr>
+          <tr><td><strong>PDF</strong></td><td>pdf-lib</td><td class="steps">7</td><td>MIT licence.</td></tr>
+          <tr><td><strong>Dashboard grid</strong></td><td>AG Grid Community</td><td class="steps">8</td><td>MIT licence. Don't import anything from AG Grid Enterprise, which is paid.</td></tr>
+          <tr><td><strong>Carrier tracking</strong></td><td>Mocked JSON</td><td class="steps">3</td><td>Free. Say on stage that it's mocked.</td></tr>
+          <tr><td><strong>Webhook tunnel</strong></td><td>Cloudflare Tunnel (<code>cloudflared</code>) or ngrok free tier</td><td class="steps">1, 10</td><td>Free. Lets PayPal reach your laptop.</td></tr>
+          <tr><td><strong>Hosting</strong></td><td>Render free web service</td><td class="steps">all</td><td>Free tier, for the live demo URL.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Free-tier catches</h2>
+    </div>
+    <div class="notes">
+      <div class="note"><h3>Claude API isn't free</h3><p>It has no free tier, so Gemini is the main model and Ollama is the backup.</p></div>
+      <div class="note"><h3>Gemini free-tier data</h3><p>Google may use free-tier prompts to improve its products. Use sandbox data only and mask buyer emails and addresses before prompting.</p></div>
+      <div class="note"><h3>Rate limits</h3><p>One dispute needs about 4–6 LLM calls, which is fine for a demo. Check current limits in AI Studio, because free tiers change.</p></div>
+      <div class="note"><h3>Render sleeps</h3><p>The free service sleeps when idle and takes about a minute to wake. Open it a few minutes before presenting. Its disk resets, so reload demo data on start.</p></div>
+      <div class="note"><h3>Ollama on a laptop</h3><p>Vision models need plenty of RAM or GPU memory and run slower. Test one full dispute end to end before relying on it.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="first">
+      <h2>Test these three first</h2>
+      <p class="lede">The demo depends on them, and none is confirmed yet. If any fails, change the plan before building the rest.</p>
+      <ol>
+        <li>The exact request format for <code>provide-evidence</code> (file part names and allowed evidence types).</li>
+        <li>Creating a test dispute in the sandbox: make a sandbox payment, then open a dispute as the sandbox buyer.</li>
+        <li>Calling the sandbox-only <code>adjudicate</code> endpoint so the dispute resolves live on stage.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>Plan for the PayPal AI Hackathon 2026. Free-tier limits and API details should be checked against current docs before building.</footer>
+</div>

@@ -1,0 +1,38 @@
+# Render Blueprint: one free web service.
+# In Render: New > Blueprint > pick this repository. Values marked `sync: false`
+# are secrets: Render asks for them during setup and they never live in git.
+services:
+  - type: web
+    name: dispute-defense-agent
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      # PayPal sandbox app (the US one)
+      - key: PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      # Webhook ID from the PayPal app's webhook pointing at this Render URL
+      - key: PAYPAL_WEBHOOK_ID
+        sync: false
+      # Real sandbox disputes to re-import on every start (comma-separated)
+      - key: PAYPAL_DISPUTE_IDS
+        sync: false
+      # Free Gemini key
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: GEMINI_FALLBACK_MODELS
+        value: gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3-flash-preview
+      # Site password (any username). Leave empty to make the site public.
+      - key: APP_PASSWORD
+        sync: false

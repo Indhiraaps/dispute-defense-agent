@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# secrets: never commit real keys
+.env
+.env.*
+!.env.example
+
+# local data and sandbox test output
+data/
+data.*/
+spike-results/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
