@@ -21,7 +21,9 @@ export function SandboxPanel({ disputeId, source, paypalStatus, allowed, submitt
   const [escState, escForm, escalating] = useActionState<ActionState, FormData>(escalateAction, { error: null });
   const [decideState, decideForm, deciding] = useActionState<ActionState, FormData>(decideAction, { error: null });
   const error = refreshState.error ?? escState.error ?? decideState.error;
-  const canDecide = source === "demo" ? submitted && !resolved : paypalStatus === "UNDER_REVIEW";
+  // PayPal adds an "adjudicate" link only once the claim can be decided (often 30+ minutes
+  // after it goes under review), so the buttons appear exactly when they will work.
+  const canDecide = source === "demo" ? submitted && !resolved : allowed.includes("adjudicate");
 
   return (
     <div className="stack">
@@ -66,7 +68,7 @@ export function SandboxPanel({ disputeId, source, paypalStatus, allowed, submitt
       {!canDecide && !resolved && (
         <p className="muted small">
           {source === "paypal"
-            ? "PayPal's decision can be triggered once the dispute is a claim under PayPal review."
+            ? "PayPal's decision can be triggered once PayPal marks the claim ready (it adds an adjudicate action, often 30+ minutes after review starts). Use Refresh from PayPal to check."
             : "Send the response first; then you can simulate PayPal's decision."}
         </p>
       )}
